@@ -1,0 +1,785 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Information</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <style>
+   /* General Styles */
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;                              
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #d4145a, #001f3f);
+             /* background: linear-gradient(135deg, #3e32a8, #ff8a8a, #f9d423, #ffb347); */     /*for extra colour*/
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            animation: slideIn 0.8s ease-in-out;
+        }
+
+.opensrc{
+  background-color: #f9fbfc00;
+}
+     /* Navigation */
+     nav {
+            background: rgba(0, 0, 0, 0.8);
+            
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 8.5;
+            z-index: 1000;
+            display: flex;
+            border: none;
+            border-radius: 45px;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover {
+            transform: translateY(-5px);
+            color: rgba(0, 0, 0, 0.067);
+            
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-weight: bold;
+            font-size: 3% ;
+            border-radius: 100px;
+            text-decoration: khaki;
+            font-weight: bolder;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffdd57;
+            transform: translateY(-5px);
+        }
+
+        .login-btn {
+            padding: 10px 20px;
+            background: #ffdd57;
+            color: black;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #f70808;
+            color: black;
+            transform: scale(1.1);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            text-shadow: -1px -1px 0, 1px -1px 0 #f4f6f4, -1px 1px 0 #a5a6a5, 1px 1px 0 #3a3a3a, #0f0f0f; 
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #d4145a, #001f3f);
+            color: white;
+            animation: fadeIn 1.5s ease-in;
+            transform: scale(1.1);
+        }
+
+        header h1 span {
+            font-family: 'Great Vibes', cursive;
+            color: #ffdd57;
+        }
+
+        button {
+            margin: 15px;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            background: #ffdd57;
+            color: black;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #f70808;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            text-shadow: -1px -1px 0, 1px -1px 0 #f4f6f4, -1px 1px 0 #a5a6a5, 1px 1px 0 #3a3a3a, #0f0f0f; 
+        }
+        .login-btn {
+            padding: 10px 20px;
+            background: #ffdd57;
+            color: black;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #f70808;
+            color: black;
+            transform: scale(1.1);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            text-shadow: -1px -1px 0, 1px -1px 0 #f4f6f4, -1px 1px 0 #a5a6a5, 1px 1px 0 #3a3a3a, #0f0f0f; 
+        }
+
+        .signup-btn {
+            position:absolute;
+            top:17;
+            right:135px;
+            padding: 10px 20px;
+            background: #ffdd57;
+            color: black;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            background-color: #f70808;
+            color: black;
+            transform: scale(1.1);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            text-shadow: -1px -1px 0, 1px -1px 0 #f4f6f4, -1px 1px 0 #a5a6a5, 1px 1px 0 #3a3a3a, #0f0f0f; 
+        }
+
+
+        
+
+        #backButton, #scrollUpButton, #settingsButton {
+    position: fixed;
+    width: 60px;
+    height: 40px;
+    background: #ffdd57;
+    color: black;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: fixed;
+    z-index: 10000;
+}
+
+#backButton:hover, #scrollUpButton:hover, #settingsButton:hover {
+    color: black;
+    transform: scale(1.1);
+    background-color: #f70808;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#backButton {
+    left: 20px;
+    position: left;
+    bottom: 20px;
+}
+
+#scrollUpButton {
+    right: 75px;
+    position: right;
+    bottom: 20px;
+}
+
+#settingsButton {
+    right: 8px;
+    position: right;
+    bottom: 20px;
+}
+#settingsContainer {
+    position: fixed;
+    right: 8px;
+    bottom: 20px;
+}
+
+#settingsMenu {
+    background: #0d000091;
+    width: 40%;
+    color: rgb(214, 214, 214);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    position: fixed;
+    right: 8px;
+    bottom: 75px;
+    z-index: 1000;
+    flex-direction: column;
+    overflow: auto;
+    max-height: 500px;
+    display: flex;
+    border: none;
+    border-radius: 25px;
+    justify-content: flex-start;
+    animation: fadeIn 0.8s forwards;
+    transition: transform 0.3s ease;
+}
+#settingsMenu::-webkit-scrollbar{
+    display: none;}
+
+#settingsMenu label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+#settingsMenu select {
+    width: 40%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#darkModeToggle {
+    margin-top: 10px;
+}
+
+
+    /* Header Section */
+    header {
+        text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #d4145a, #001f3f);
+            color: white;
+            animation: fadeIn 1.5s ease-in;
+            transform: scale(1.1);
+        }
+
+    header h1 span {
+      font-family: 'Great Vibes', cursive;
+      color: #ffdd57;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 50px 0;
+    }
+
+    .contact-tab {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      margin-bottom: 30px;
+      animation: fadeIn 1.5s ease;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .contact-tab:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .contact-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-photo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .contact-name {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-icons a {
+      color: inherit;
+      margin: 0 10px;
+      font-size: 1.5em;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+
+    .contact-details {
+      font-size: 1.1em;
+      line-height: 1.8;
+      margin-top: 15px;
+    }
+
+    .meeting-timing {
+      font-size: 1.1em;
+      margin-top: 10px;
+      color: #ffdd57;
+    }
+
+    .contact-info {
+      font-size: 1.1em;
+      color: #ffdd57;
+    }
+
+    /* Footer */
+    footer {
+        background: linear-gradient(135deg, #001f3f);
+      padding: 20px 0;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+      /* Newsletter Section */
+      .newsletter {
+              padding: 50px;
+              text-align: center;
+              background: linear-gradient(135deg, #ffb347, #f9d423,  #ff8a8a, #3e32a8,);       
+               color: #fff;
+          }
+          .newsletter input {
+              padding: 10px;
+              margin: 10px;
+              border: none;
+              border-radius: 5px;
+          }
+          .newsletter .btn {
+              background: linear-gradient(45deg, #fb0404d2, #910202b2); 
+          }
+          .newsletter .btn:hover {
+              transform: scale(1.05); /* Slight hover effect */
+              background: linear-gradient(45deg, #f6aeaed2, #ae6161);
+          } 
+
+          
+     /* logout btn */
+     .logout-btn {
+            position: center;
+            bottom: -40px;
+            align-items:center: 40px;
+            background: linear-gradient(45deg, #ff0000, #b30000); /* Gradient red color */
+            color: white;
+            border: none;
+            padding: 8px 15px; /* Smaller size */
+            border-radius: 20px; /* Rounded corners */
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s infinite;
+        }
+
+        .logout-btn:hover {
+            transform: scale(1.05); /* Slight hover effect */
+            background: linear-gradient(45deg, #ff4d4d, #cc0000); /* Lighter red on hover */
+        }
+
+        .logout-btn img {
+            width: 20px; /* Smaller icon */
+            height: 20px;
+            margin-right: 2px; /* Space between icon and text */
+        }
+
+        .logout-btn i {
+            margin-left: 5px;
+        }
+        /* Smooth transition for better look */
+        input, select, button {
+            transition: all 0.3s ease-in-out;
+        }
+
+
+        .logout-text {
+            font-size: 16px;
+            color: #f44336;
+            font-weight: bold;
+        }
+
+
+    /* Animations */
+    @keyframes backgroundFade {
+      0% { background: linear-gradient(135deg, #001f3f, #d4145a); }
+      50% { background: linear-gradient(135deg, #3d348b, #ff7300); }
+      100% { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
+    }
+    @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }       
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes animate {
+            from {
+                opacity: 0;
+                transform: translate(0, 100px);
+                filter: blur(3px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(0);
+                filter: blur(0);
+            }
+        }
+
+        @import url('https://use.fontawesome.com/releases/v6.4.2/css/all.css');
+        @keyframes animate { 
+            from { 
+                opacity: 0; 
+                transform: translate(0, 100px); 
+                filter: blur(3px); }
+                 to 
+                 { opacity: 1; transform: translate(0); filter: blur(0); } }
+
+
+         @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                max-width: 90%;
+            }}
+  </style>
+</head>
+<body>
+  <div class="opensrc"></div>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="tools.html"><i class="fas fa-tools"></i> Tools</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+      <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+    </ul>
+    <button class="signup-btn" onclick="window.location.href='SignUp.html'">SignUp</button>
+    <button class="login-btn" onclick="window.location.href='login.html'">LogIn</button>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>Contact📞 our Expert👨‍🦱 with <span>AI Authentica</span></h1>
+  </header>
+
+ 
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <h2>Contact Our Experts</h2><br>
+      <div id="backButton" onclick="goToIndex()" class="button">
+        <i class="fas fa-arrow-circle-left"></i>
+    </div>
+    
+    <div id="scrollUpButton" onclick="scrollToTop()" class="button">
+        <i class="fas fa-angle-double-up"></i>
+    </div>
+    
+    <div id="settingsButton" onclick="toggleSettings()" class="button">
+        <i class="fas fa-sliders-h"></i>
+    </div>
+    <div id="settingsMenu" style="display: none;">
+      <label for="bgColor"><h1><b>Settings</b></h1></label>
+        <label for="bgColor">Change Background Color:</label>
+        <label for="theme">Theme Settings (Light/Dark Mode)</label>
+            <select id="theme" onchange="changeTheme()">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+    
+        <label for="textSize">Change Text Size:</label>
+        <select id="textSize" onchange="changeTextSize(this.value)">
+            <option value="16px">Default</option>
+            <option value="18px">Large</option>
+            <option value="20px">Larger</option>
+        </select>
+    
+        <label for="language">Language Settings</label>
+        <select id="language">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+        </select>
+
+        <label for="account">Account Settings</label>
+        <input type="text" id="account" placeholder="Update your details">
+        <button onclick="updateAccount()">Update</button>
+
+        <label for="notifications">Notification Settings</label>
+        <select id="notifications">
+            <option value="on">On</option>
+            <option value="off">Off</option>
+        </select>
+
+        <label for="privacy">Privacy Settings</label>
+        <select id="privacy">
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+        </select>
+
+        <label for="playback">Playback Settings</label>
+            <select id="playback">
+                <option value="auto">Auto</option>
+                <option value="hd">HD</option>
+                <option value="sd">SD</option>
+            </select>
+
+            <label for="content">Content Settings</label>
+            <select id="content">
+                <option value="all">All Content</option>
+                <option value="restricted">Restricted</option>
+            </select>
+
+            <label for="security">Security Settings</label>
+            <select id="security">
+                <option value="2fa">Two-Factor Authentication</option>
+                <option value="alerts">Login Alerts</option>
+            </select>
+
+            <label for="payment">Payment Settings</label>
+            <input type="text" id="payment" placeholder="Update payment method">
+            <button onclick="updatePayment()">Update</button>
+
+            <label for="accessibility">Accessibility Settings</label>
+            <select id="accessibility">
+                <option value="text-size">Text Size</option>
+                <option value="contrast">High Contrast</option>
+            </select>
+
+            <label for="storage">Data and Storage Settings</label>
+            <button onclick="clearStorage()">Clear Storage</button>
+
+            <label for="locale">Language/Locale Settings</label>
+            <select id="locale">
+                <option value="en-us">English (US)</option>
+                <option value="hi-in">Hindi (India)</option>
+            </select>
+
+            <label for="support">Help & Support</label>
+            <button class="toolsBtn" onclick="window.location.href='contact.html'">Contact Support</button>
+
+            </div>
+
+
+      <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-tab">
+        <img src="ayushharinkhere.jpg" alt="Ayush Harinkhede" class="contact-photo">
+        <div class="contact-name">Ayush Harinkhede</div>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram" style="color: #E4405F;"></i></a>
+          <a href="#"><i class="fab fa-facebook" style="color: #3B5998;"></i></a>
+          <a href="#"><i class="fab fa-linkedin" style="color: #0077B5;"></i></a>
+          <a href="#"><i class="fab fa-twitter" style="color: #1DA1F2;"></i></a>
+          <a href="#"><i class="fab fa-github" style="color: #171515;"></i></a>
+        </div>
+        <div class="contact-details">
+          <p>A highly skilled professional specializing in innovative AI technologies.<br>Passionate about designing user-friendly platforms.</p>
+          <p><b>Call us</b> Mon-Fri from 10:00 AM to 5:00 PM<br><b>Phone:-</b> (+91 9209514158)</p>
+          <p><b>Email:-</b> ayushharinkhere2005@gmail.com</p>
+         </div>
+      </div>
+      <div class="contact-tab">
+        <img src="LuckyRahangdale.jpg" alt="Lucky Rahangdale" class="contact-photo">
+        <div class="contact-name">Lucky Rahangdale</div>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram" style="color: #E4405F;"></i></a>
+          <a href="#"><i class="fab fa-facebook" style="color: #3B5998;"></i></a>
+          <a href="#"><i class="fab fa-linkedin" style="color: #0077B5;"></i></a>
+          <a href="#"><i class="fab fa-twitter" style="color: #1DA1F2;"></i></a>
+          <a href="#"><i class="fab fa-github" style="color: #171515;"></i></a>
+        </div>
+        <div class="contact-details">
+          <p>A creative thinker and problem solver with expertise in AI integration.<br>Dedicated to delivering seamless user experiences.</p>
+          <p><b>Call uss-</b> Mon-Fri from 8:00 AM to 5:00 PM<br><b>Phone:-</b> (+91 8459351781)</p>
+          <p><b>Email:-</b> luckyrahangdale@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact-tab">
+    <div class="contact-details"><h1><b>Address📍:-</b></h1><h2>🗾Wanadongri Hingna Road Nagpur(441110), Maharashtra, India, Asia</h2>
+    <button><h3>🔗https://maps.app.goo.gl/cTU9tNF1WA9XXeH28</h3></button></div></section>
+
+
+      <!-- Newsletter Section -->
+      <section class="newsletter">
+        <h2>Stay Updated💢</h2>
+        <p>Subscribe to our newsletter for the latest news and updates.</p>
+        <form>
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit" class="btn"><b>Subscribe</b></button>
+        </form>
+    </section>
+
+ <!-- Footer -->
+ <footer>    
+  <div class="container">
+      <p>&copy;<b> 2024-2025 AI Authentica. All rights reserved.</b> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p><br>
+  </div>
+  <button class="logout-btn" id="logoutBtn">
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png" alt="Logout Icon">
+    <span><b>Logout</b></span>
+</button>
+
+<script>
+    document.getElementById('logoutBtn').addEventListener('click', function() {
+        window.location.href = 'login.html';
+    });
+
+    function toggleSettings() {
+      const menu = document.getElementById('settingsMenu');
+      menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+    }
+
+    // Change background color
+    function changeBgColor(color) {
+      document.body.style.backgroundColor = color;
+    }
+
+    // Change text size
+    function changeTextSize(size) {
+      document.body.style.fontSize = size;
+    }
+
+    // Toggle dark mode
+    function toggleDarkMode(isDark) {
+      document.body.style.backgroundColor = isDark ? '#333' : 'white';
+      document.body.style.color = isDark ? 'white' : 'black';
+    }
+
+    // Close the settings menu if clicked outside
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('settingsMenu');
+      const button = document.getElementById('settingsButton');
+      if (!menu.contains(event.target) && !button.contains(event.target)) {
+        menu.style.display = 'none';
+      }
+    });
+
+        function toggleSettingsMenu() {
+    var menu = document.getElementById('settingsMenu');
+    if (menu.style.display === 'none' || menu.style.display === '') {
+        menu.style.display = 'block';
+    } else {
+        menu.style.display = 'none';
+    }
+}
+
+function changeBgColor(color) {
+    document.body.style.backgroundColor = color;
+}
+
+function changeTextSize(size) {
+    document.body.style.fontSize = size;
+}
+
+function toggleDarkMode(isDark) {
+    document.body.style.backgroundColor = isDark ? 'black' : 'white';
+    document.body.style.color = isDark ? 'white' : 'black';
+}
+      function goToIndex() {
+        window.location.href = 'index.html';
+    }
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function toggleSettings() {
+        const settingsMenu = document.getElementById('settingsMenu');
+        settingsMenu.style.display = settingsMenu.style.display === 'none' ? 'block' : 'none';
+    }
+    function changeBgColor(color) {
+        document.body.style.backgroundColor = color;
+    }
+    function changeTextSize(size) {
+        document.body.style.fontSize = size;
+    }
+    function toggleDarkMode(isDark) {
+        document.body.style.backgroundColor = isDark ? '#333' : 'white';
+        document.body.style.color = isDark ? 'white' : 'black';
+    }
+    function changeFontStyle(font) {
+        document.body.style.fontFamily = font;
+    }
+          
+</script>
+</body>
+</footer>
+</body>
+</html>

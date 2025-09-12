@@ -1,0 +1,318 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Authentica- Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body, html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            background-attachment: fixed;
+            background-size: 100%;
+            align-items: center;
+            overflow: visible;
+            background: linear-gradient(135deg, #d4145a, #001f3f);
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1200px;
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            justify-content: space-between;
+            align-items: stretch;
+            animation: fadeIn 0.8s ease-in-out;
+            border-radius: 25px;
+        }
+
+        .left-section {
+            background: linear-gradient(135deg, #8e2de2, #4a00e0);
+            color: white;
+            padding: 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideInLeft 0.6s ease-out;
+            text-align: center;
+            border-radius: 25px;
+        }
+
+        .left-section h1 {
+            font-size: 3rem;
+            font-family: 'Great Vibes', cursive;
+            margin-bottom: 20px;
+            border-radius: 25px;
+        }
+
+        .left-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .left-section button {
+            padding: 10px 25px;
+            background-color: white;
+            color: #8e2de2;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+            animation: bounce 2s infinite;
+        }
+
+        .left-section button:hover {
+            transform: scale(1.1);
+        }
+
+        .right-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideInRight 0.6s ease-out;
+            transition: all 0.4s ease;
+        }
+
+        .right-section h2 {
+            font-size: 3rem;
+            font-family: 'Great Vibes', cursive;
+            margin-bottom: 20px;
+            color: #ffcccb;
+            animation: type 1s steps(10) 1s forwards;
+            transition: all 0.4s ease;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #ffdd57;
+            font-size: 1.1em;
+            background: transparent;
+            color: white;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #ffcccb;
+            box-shadow: 0 0 5px rgba(255, 204, 203, 0.5);
+        }
+
+        .form-group label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            transition: top 0.3s, font-size 0.3s;
+        }
+
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label {
+            top: -10px;
+            font-size: 0.8em;
+            color: #ffcccb;
+        }
+
+        .login-btn {
+            padding: 15px;
+            background: linear-gradient(135deg, #8e2de2, #4a00e0);
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+            transition: transform 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background: linear-gradient(135deg, #4a00e0, #8e2de2);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .eye {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            border: 2px solid #555;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .eye-ball {
+            width: 10px;
+            height: 10px;
+            background-color: #555;
+            border-radius: 50%;
+            position: absolute;
+            transition: transform 0.1s ease;
+        }
+
+        .forgot-password, .signup {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .forgot-password a, .signup a {
+            text-decoration: none;
+            color: #ffdd57;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password a:hover, .signup a:hover {
+            color: #ffcccb;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                max-width: 90%;
+            }
+
+            .left-section, .right-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h1>Welcome to <br><b><i>AI Authentica!</i></b></h1>
+            <p>Login to your account to continue which detects through AI whether the thing sent by you is AI generated or human creativity..</p>
+            <button onclick="window.location.href='signup.html'">Sign Up</button>
+        </div>
+        <div class="right-section">
+            <h2>Login...</h2>
+
+            <form action="index.html" method="post">
+                <div class="form-group">
+                    <input type="text" id="username" name="username" required placeholder=" " />
+                    <label for="username">Username or email</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" required placeholder=" " />
+                    <label for="password">Password</label>
+                    <div class="eye" id="togglePassword">
+                        <div class="eye-ball" id="eyeBall"></div>
+                    </div>
+                </div>
+                <button class="login-btn" type="submit">Submit</button><br><br>
+            </form>
+
+            <div class="forgot-password">
+                <a href="#">Forgot your password?</a>
+            </div>
+            <div class="signup">
+                <a href="#">Don't have an account? Sign up</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('button').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('.container').style.transform = 'translateX(-100%)';
+            setTimeout(() => window.location.href = 'signup.html', 500);
+        });
+
+        const passwordInput = document.getElementById('password');
+        const togglePasswordButton = document.getElementById('togglePassword');
+        const eyeBall = document.getElementById('eyeBall');
+
+        // Toggle password visibility
+        togglePasswordButton.addEventListener('click', () => {
+            passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+        });
+
+        // Eye-ball follows cursor movement
+        document.addEventListener('mousemove', (e) => {
+            const eye = togglePasswordButton.getBoundingClientRect();
+            const x = e.clientX - eye.left - eye.width / 2;
+            const y = e.clientY - eye.top - eye.height / 2;
+
+            // Set eye-ball position
+            const angle = Math.atan2(y, x);
+            const distance = Math.min(6, Math.hypot(x, y) / 5);
+            const ballX = Math.cos(angle) * distance;
+            const ballY = Math.sin(angle) * distance;
+
+            eyeBall.style.transform = `translate(${ballX}px, ${ballY}px)`;
+        });
+    </script>
+</body>
+</html>

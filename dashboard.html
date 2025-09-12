@@ -1,0 +1,795 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+     /* General Styles */
+     * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+              font-family: 'Roboto', sans-serif;                              
+              scroll-behavior: smooth;
+          }
+  
+          body {
+              background: linear-gradient(135deg, #d4145a, #001f3f);
+               /* background: linear-gradient(135deg, #3e32a8, #ff8a8a, #f9d423, #ffb347); */     /*for extra colour*/
+              color: white;
+              overflow-x: hidden;
+          }
+  
+          .container {
+              width: 80%;
+              margin: auto;
+              text-align: center;
+              animation: slideIn 0.8s ease-in-out;
+          }
+     
+          @font-face {
+              font-family: 'DottedMatrix';
+              src: url('path-to-your-font-file.woff2') format('woff2'),
+                   url('path-to-your-font-file.woff') format('woff');
+          }
+  
+          .dotted-text {
+              font-family: 'DottedMatrix', sans-serif;
+              font-size: 30px;
+              animation: flicker 1s infinite; /* Flicker Animation */}
+  
+       /* Navigation */
+       nav {
+              background: rgba(0, 0, 0, 0.8);
+              animation: slideIn 2s ease-in-out;
+              padding: 15px;
+              position: fixed;
+              width: 100%;
+              top: 8.5;
+              z-index: 1000;
+              display: flex;
+              border: none;
+              border-radius: 45px;
+              justify-content: space-between;
+              align-items: center;
+              cursor: pointer;
+              transition: transform 0.3s ease;
+          }
+  
+          nav a:hover {
+              transform: translateY(-5px);
+              color: rgba(0, 0, 0, 0.067);
+              
+          }
+  
+          nav ul {
+              list-style: none;
+              display: flex;
+              gap: 30px;
+          }
+  
+          nav ul li a {
+              color: white;
+              font-weight: bold;
+              font-size: 3% ;
+              border-radius: 100px;
+              text-decoration: khaki;
+              font-weight: bolder;
+              font-size: 1.1em;
+              transition: color 0.3s ease;
+          }
+  
+          nav ul li a:hover {
+              color: #ffdd57;
+              transform: translateY(-5px);
+          }
+  
+          .login-btn {
+              padding: 10px 20px;
+              background: #ffdd57;
+              color: black;
+              border: none;
+              border-radius: 25px;
+              cursor: pointer;
+              font-weight: bold;
+              transition: transform 0.3s ease;
+          }
+  
+          .login-btn:hover {
+              background-color: #f70808;
+              color: black;
+              transform: scale(1.1);
+              text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+              text-shadow: -1px -1px 0, 1px -1px 0 #f4f6f4, -1px 1px 0 #a5a6a5, 1px 1px 0 #3a3a3a, #0f0f0f; 
+          }
+
+
+          #backButton, #scrollUpButton, #settingsButton {
+    position: fixed;
+    width: 60px;
+    height: 40px;
+    background: #ffdd57;
+    color: black;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#backButton:hover, #scrollUpButton:hover, #settingsButton:hover {
+    color: black;
+    transform: scale(1.1);
+    background-color: #f70808;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#backButton {
+    left: 20px;
+    position: left;
+    bottom: 20px;
+}
+
+#scrollUpButton {
+    right: 75px;
+    position: right;
+    bottom: 20px;
+}
+
+#settingsButton {
+    right: 8px;
+    position: right;
+    bottom: 20px;
+}
+#settingsContainer {
+    position: fixed;
+    right: 8px;
+    bottom: 20px;
+}
+
+#settingsMenu {
+    background: #0d000091;
+    width: 40%;
+    color: rgb(214, 214, 214);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    position: fixed;
+    right: 8px;
+    bottom: 75px;
+    z-index: 1000;
+    flex-direction: column;
+    overflow: auto;
+    max-height: 500px;
+    display: flex;
+    border: none;
+    border-radius: 25px;
+    justify-content: flex-start;
+    animation: fadeIn 0.8s forwards;
+    transition: transform 0.3s ease;
+}
+#settingsMenu::-webkit-scrollbar{
+    display: none;}
+
+#settingsMenu label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+#settingsMenu select {
+    width: 40%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#darkModeToggle {
+    margin-top: 10px;
+}
+
+  
+          /* Header Section */
+          header {
+              text-align: center;
+              padding: 30px;
+              background: rgba(0, 0, 0, 0.8);
+              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+              height: 100vh;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              background: linear-gradient(135deg, #d4145a, #001f3f);
+              color: white;
+              animation: fadeIn 1.5s ease-in;
+              transform: scale(1.1);
+          }
+  
+          header h1 span {
+              font-family: 'Great Vibes', cursive;
+              color: #ffdd57;
+          }
+  
+          button {
+              margin: 15px;
+              padding: 12px 25px;
+              font-size: 1.1em;
+              border: none;
+              background: #ffdd57;
+              color: black;
+              border-radius: 25px;
+              cursor: pointer;
+              transition: transform 0.3s ease;
+          }
+  
+          button:hover {
+              transform: scale(1.1);
+              background-color: #f70808;
+              text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+              text-shadow: -1px -1px 0, 1px -1px 0 #f4f6f4, -1px 1px 0 #a5a6a5, 1px 1px 0 #3a3a3a, #0f0f0f; 
+          }
+          .login-btn {
+              padding: 10px 20px;
+              background: #ffdd57;
+              color: black;
+              border: none;
+              border-radius: 25px;
+              cursor: pointer;
+              font-weight: bold;
+              transition: transform 0.3s ease;
+          }
+  
+          .login-btn:hover {
+              background-color: #f70808;
+              color: black;
+              transform: scale(1.1);
+              text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+              text-shadow: -1px -1px 0, 1px -1px 0 #f4f6f4, -1px 1px 0 #a5a6a5, 1px 1px 0 #3a3a3a, #0f0f0f; 
+          }
+  
+          .signup-btn {
+              position:absolute;
+              top:17;
+              right:135px;
+              padding: 10px 20px;
+              background: #ffdd57;
+              color: black;
+              border: none;
+              border-radius: 25px;
+              cursor: pointer;
+              font-weight: bold;
+              transition: transform 0.3s ease;
+          }
+  
+          .signup-btn:hover {
+              background-color: #f70808;
+              color: black;
+              transform: scale(1.1);
+              text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+              text-shadow: -1px -1px 0, 1px -1px 0 #f4f6f4, -1px 1px 0 #a5a6a5, 1px 1px 0 #3a3a3a, #0f0f0f; 
+          }
+          header {
+              text-align: center;
+              padding: 50px 20px;
+              background: rgba(0, 0, 0, 0.8);
+              height: 100vh;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              background: linear-gradient(135deg, #d4145a, #001f3f);
+              animation: fadeIn 1.5s ease-in;
+              transform: scale(1.1);
+          }
+  
+          header h1 span {
+              font-family: 'Great Vibes', cursive;
+              color: #ffdd57;
+          }
+  
+          /* About Section */
+          .info {
+              padding: 50px;
+              height: auto;
+              background: linear-gradient(135deg, #d4145a, #001f3f);
+              color: white;
+              animation: fadeIn 1.5s ease-in;
+          }
+  
+          .section-container {
+              margin: 20px 0;
+              padding: 20px;
+              background-color: rgba(0, 0, 0, 0.7);
+              border-radius: 10px;
+              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+              transition: transform 0.3s ease-in-out;
+          }
+  
+          .section-container:hover {
+              transform: scale(1.05);
+          }
+  
+          .section-container h2 {
+              font-size: 2em;
+              margin-bottom: 10px;
+          }
+  
+          .section-container p {
+              font-size: 1.2em;
+              line-height: 1.8;
+          }
+  
+          /* Newsletter Section */
+          .newsletter {
+              padding: 50px;
+              text-align: center;
+              background: linear-gradient(135deg, #ffb347, #f9d423,  #ff8a8a, #3e32a8,);       
+               color: #fff;
+          }
+          .newsletter input {
+              padding: 10px;
+              margin: 10px;
+              border: none;
+              border-radius: 5px;
+          }
+          .newsletter .btn {
+              background: linear-gradient(45deg, #fb0404d2, #910202b2); 
+          }
+          .newsletter .btn:hover {
+              transform: scale(1.05); /* Slight hover effect */
+              background: linear-gradient(45deg, #f6aeaed2, #ae6161); 
+  
+          }
+  
+          /* Footer */
+          footer {
+              background: linear-gradient(135deg, #001f3f);
+              padding: 20px 0;
+              color: white;
+              text-align: center;
+          }
+       /* logout btn */
+       .logout-btn {
+              position: center;
+              bottom: -40px;
+              align-items:center: 40px;
+              background: linear-gradient(45deg, #ff0000, #b30000); /* Gradient red color */
+              color: white;
+              border: none;
+              padding: 8px 15px; /* Smaller size */
+              border-radius: 20px; /* Rounded corners */
+              cursor: pointer;
+              font-weight: bold;
+              box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+              animation: bounce 2s infinite;
+          }
+  
+          .logout-btn:hover {
+              transform: scale(1.05); /* Slight hover effect */
+              background: linear-gradient(45deg, #ff4d4d, #cc0000); /* Lighter red on hover */
+          }
+  
+          .logout-btn img {
+              width: 20px; /* Smaller icon */
+              height: 20px;
+              margin-right: 2px; /* Space between icon and text */
+          }
+  
+          .logout-btn i {
+              margin-left: 5px;
+          }
+          /* Smooth transition for better look */
+          input, select, button {
+              transition: all 0.3s ease-in-out;
+          }
+  
+  
+          .logout-text {
+              font-size: 16px;
+              color: #f44336;
+              font-weight: bold;
+          }
+  
+  
+      /* Animations */
+  
+       /* Animations */
+       @keyframes fadeIn {
+              from {
+                  opacity: 0;
+                  transform: translateY(-20px);
+              }
+              to {
+                  opacity: 1;
+                  transform: translateY(0);
+              }}
+    
+              @keyframes flicker {
+              0% { opacity: 1; }
+              50% { opacity: 0; }
+              100% { opacity: 1; }
+          }
+  
+  
+      @keyframes backgroundFade {
+        0% { background: linear-gradient(135deg, #001f3f, #d4145a); }
+        50% { background: linear-gradient(135deg, #3d348b, #ff7300); }
+        100% { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
+      }
+      @keyframes fadeIn {
+              from {
+                  opacity: 0;
+                  transform: translateY(-20px);
+              }
+              to {
+                  opacity: 1;
+                  transform: translateY(0);
+              }
+          }
+  
+          @keyframes bounce {
+              0%, 20%, 50%, 80%, 100% {
+                  transform: translateY(0);
+              }
+              40% {
+                  transform: translateY(-10px);
+              }
+              60% {
+                  transform: translateY(-5px);
+              }       
+          }
+  
+          @keyframes slideInLeft {
+              from {
+                  transform: translateX(-100%);
+              }
+              to {
+                  transform: translateX(0);
+              }
+          }
+  
+          @keyframes slideInRight {
+              from {
+                  transform: translateX(100%);
+              }
+              to {
+                  transform: translateX(0);
+              }
+          }
+  
+          @keyframes animate {
+              from {
+                  opacity: 0;
+                  transform: translate(0, 100px);
+                  filter: blur(3px);
+              }
+              to {
+                  opacity: 1;
+                  transform: translate(0);
+                  filter: blur(0);
+              }
+          }
+  
+          @import url('https://use.fontawesome.com/releases/v6.4.2/css/all.css');
+          @keyframes animate { 
+              from { 
+                  opacity: 0; 
+                  transform: translate(0, 100px); 
+                  filter: blur(3px); }
+                   to 
+                   { opacity: 1; transform: translate(0); filter: blur(0); } }
+  
+  
+           @media (max-width: 768px) {
+              .container {
+                  flex-direction: column;
+                  max-width: 90%;
+              }}
+    </style>
+  </head>
+  
+  <body>
+      <!-- Navigation Bar -->
+      <nav>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+          <li><a href="tools.html"><i class="fas fa-tools"></i> Tools</a></li>
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+          <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+        </ul>
+        <button class="signup-btn" onclick="window.location.href='SignUp.html'">SignUp</button>
+        <button class="login-btn" onclick="window.location.href='login.html'">LogIn</button>
+      </nav>
+    
+      <!-- Header -->
+      <header>
+        <h1>Gateway🚪 to understanding🦤 <span>AI Authentica</span></h1><br>
+      </header>
+       <!-- <p class="dotted-text">Hello, this is a AI Authentica!</p> --> 
+  
+       <section class="info">
+        <div class="section-container">
+            <h1>Introduction to AI and Crime🥷</h1>
+            <p>AI technology has transformed numerous industries, but it has also opened doors for various crimes. This section discusses 10 news incidents, 20 current affairs, and 10 short stories related to AI-based fraud, especially involving deep fake technology.</p>
+        <p>Your gateway to understanding AI crimes and innovations!</p>
+    </div>
+
+    <div id="backButton" onclick="goToIndex()" class="button">
+        <i class="fas fa-arrow-circle-left"></i>
+    </div>
+    
+    <div id="scrollUpButton" onclick="scrollToTop()" class="button">
+        <i class="fas fa-angle-double-up"></i>
+    </div>
+    
+    <div id="settingsButton" onclick="toggleSettings()" class="button">
+        <i class="fas fa-sliders-h"></i>
+    </div>
+    <div id="settingsMenu" style="display: none;">
+        <label for="bgColor"><h1><b>Settings</b></h1></label>
+        <label for="bgColor">Change Background Color:</label>
+        <label for="theme">Theme Settings (Light/Dark Mode)</label>
+            <select id="theme" onchange="changeTheme()">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+    
+        <label for="textSize">Change Text Size:</label>
+        <select id="textSize" onchange="changeTextSize(this.value)">
+            <option value="16px">Default</option>
+            <option value="18px">Large</option>
+            <option value="20px">Larger</option>
+        </select>
+    
+        <label for="language">Language Settings</label>
+        <select id="language">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+        </select>
+
+        <label for="account">Account Settings</label>
+        <input type="text" id="account" placeholder="Update your details">
+        <button onclick="updateAccount()">Update</button>
+
+        <label for="notifications">Notification Settings</label>
+        <select id="notifications">
+            <option value="on">On</option>
+            <option value="off">Off</option>
+        </select>
+
+        <label for="privacy">Privacy Settings</label>
+        <select id="privacy">
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+        </select>
+
+        <label for="playback">Playback Settings</label>
+            <select id="playback">
+                <option value="auto">Auto</option>
+                <option value="hd">HD</option>
+                <option value="sd">SD</option>
+            </select>
+
+            <label for="content">Content Settings</label>
+            <select id="content">
+                <option value="all">All Content</option>
+                <option value="restricted">Restricted</option>
+            </select>
+
+            <label for="security">Security Settings</label>
+            <select id="security">
+                <option value="2fa">Two-Factor Authentication</option>
+                <option value="alerts">Login Alerts</option>
+            </select>
+
+            <label for="payment">Payment Settings</label>
+            <input type="text" id="payment" placeholder="Update payment method">
+            <button onclick="updatePayment()">Update</button>
+
+            <label for="accessibility">Accessibility Settings</label>
+            <select id="accessibility">
+                <option value="text-size">Text Size</option>
+                <option value="contrast">High Contrast</option>
+            </select>
+
+            <label for="storage">Data and Storage Settings</label>
+            <button onclick="clearStorage()">Clear Storage</button>
+
+            <label for="locale">Language/Locale Settings</label>
+            <select id="locale">
+                <option value="en-us">English (US)</option>
+                <option value="hi-in">Hindi (India)</option>
+            </select>
+
+            <label for="support">Help & Support</label>
+            <button class="toolsBtn" onclick="window.location.href='contact.html'">Contact Support</button>
+
+            </div>
+
+    
+    <!-- News Stories -->
+    <section class="news">
+        <div class="section-container">
+            <h1><b>AI Crime News Stories📚</b></h1>
+            <ol>
+                <li><strong>Deep Fake Bank Heist:</strong> Criminals used AI-generated voice of a CEO to steal $35 million.</li>
+                <li><strong>Fake Politician Speech:</strong> A deep fake video altered a leader's speech, inciting public unrest.</li>
+                <li><strong>Celebrity Scams:</strong> Deep fake AI videos featuring celebrities promoted fraudulent investment schemes.</li>
+                <li><strong>Fake Recruiter Calls:</strong> AI voices tricked job seekers into paying for fake job opportunities.</li>
+                <li><strong>Phishing Emails:</strong> AI-generated emails mimicked company executives to steal sensitive information.</li>
+                <li><strong>Romance Scams:</strong> AI avatars created fake profiles to dupe victims on dating sites.</li>
+                <li><strong>Election Manipulation:</strong> Deep fake videos spread misinformation during campaigns.</li>
+                <li><strong>AI-Driven Ransomware:</strong> Hackers used AI to bypass advanced security systems.</li>
+                <li><strong>Fake Court Evidence:</strong> Deep fake videos were submitted to manipulate legal cases.</li>
+                <li><strong>Deep Fake Pornography:</strong> Non-consensual fake videos targeted public figures.</li>
+            </ol>
+        </div>
+    </section>
+    
+    <!-- Current Affairs -->
+    <section class="current-affairs">
+        <div class="section-container">
+            <h2><b>Current Affairs Topics Related to AI Crimes🔪</b></h2>
+            <ul>
+                <li>Emergence of AI legislation to combat cyber crimes.</li>
+                <li>Challenges in detecting deep fake content on social media.</li>
+                <li>Role of AI in financial fraud prevention.</li>
+                <li>Global collaboration to address AI-driven crimes.</li>
+                <li>AI-powered fake news and its societal impact.</li>
+                <li>Efforts to regulate AI tools in criminal investigations.</li>
+                <li>AI’s role in combating human trafficking.</li>
+                <li>Advancements in deep fake detection algorithms.</li>
+                <li>Use of AI for ethical hacking and system protection.</li>
+                <li>Integration of blockchain for secure identity verification.</li>
+                <li>AI's misuse in stock market manipulation.</li>
+                <li>Potential AI-driven identity theft cases in 2024.</li>
+                <li>Debates on banning certain AI technologies.</li>
+                <li>Impact of deep fakes on personal privacy laws.</li>
+                <li>Efforts to train law enforcement on AI tools.</li>
+                <li>AI as a double-edged sword in cybersecurity.</li>
+                <li>Role of open-source AI in increasing cyber vulnerabilities.</li>
+                <li>Social awareness campaigns against deep fake scams.</li>
+                <li>Increasing use of AI in phishing attacks.</li>
+                <li>Proposals for ethical AI standards in governments.</li>
+            </ul>
+        </div>
+    
+    <!-- Deep Fake AI Short Stories -->
+    <section class="stories">
+        <div class="section-container">
+            <h2>Short Stories on Deep Fake👾 AI Crimes</h2>
+            <ol>
+                <li><strong>The Fake Ransom Call:</strong> A family was tricked into paying a ransom after receiving an AI-generated call mimicking their son's voice.</li>
+                <li><strong>The Election Scandal:</strong> A deep fake video showed a politician accepting bribes, leading to massive protests.</li>
+                <li><strong>Celebrity Endorsement Hoax:</strong> A popular actress's AI-generated video promoted fake products, duping fans.</li>
+                <li><strong>Businessman's Nightmare:</strong> An AI voice imitated a CEO to authorize illegal transactions.</li>
+                <li><strong>The Revenge Plot:</strong> A disgruntled employee used deep fake videos to tarnish a company’s reputation.</li>
+                <li><strong>False Confession:</strong> A suspect’s AI-generated confession video almost led to a wrongful conviction.</li>
+                <li><strong>Deep Fake Romance:</strong> A man fell in love with a non-existent AI-generated profile.</li>
+                <li><strong>Scammed Senior Citizen:</strong> A deep fake video of a grandson pleading for money tricked an elderly woman.</li>
+                <li><strong>Corporate Espionage:</strong> A competitor used deep fake AI to leak false company strategies.</li>
+                <li><strong>The Framed Journalist:</strong> A journalist was accused of fake news due to a deep fake audio recording.</li>
+            </ol>
+        </div>
+    
+    <footer>
+        <div class="section-container">
+            <h2>Conclusion👀</h2>
+            <p>As AI technology advances, it is crucial to address its potential misuse. Governments, tech companies, and individuals must collaborate to mitigate risks and ensure the responsible use of AI tools.</p>
+        </div>
+    </footer>
+      
+           <!-- Newsletter Section -->
+           <section class="newsletter">
+              <h2>Stay Updated💢</h2>
+              <p>Subscribe to our newsletter for the latest news and updates.</p>
+              <form>
+                  <input type="email" placeholder="Your Email" required>
+                  <button type="submit" class="btn"><b>Subscribe</b></button>
+              </form>
+          </section>
+      
+      
+      
+          <!-- Footer -->
+          <footer>    
+              <div class="container">
+                  <p>&copy;<b> 2024-2025 AI Authentica. All rights reserved.</b> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p><br>
+              </div>
+              <button class="logout-btn" id="logoutBtn">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png" alt="Logout Icon">
+                <span><b>Logout</b></span>
+            </button>
+
+            <script>
+                document.getElementById('logoutBtn').addEventListener('click', function() {
+                    window.location.href = 'login.html';
+                });
+
+                function toggleSettings() {
+      const menu = document.getElementById('settingsMenu');
+      menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+    }
+
+    // Change background color
+    function changeBgColor(color) {
+      document.body.style.backgroundColor = color;
+    }
+
+    // Change text size
+    function changeTextSize(size) {
+      document.body.style.fontSize = size;
+    }
+
+    // Toggle dark mode
+    function toggleDarkMode(isDark) {
+      document.body.style.backgroundColor = isDark ? '#333' : 'white';
+      document.body.style.color = isDark ? 'white' : 'black';
+    }
+
+    // Close the settings menu if clicked outside
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('settingsMenu');
+      const button = document.getElementById('settingsButton');
+      if (!menu.contains(event.target) && !button.contains(event.target)) {
+        menu.style.display = 'none';
+      }
+    });
+
+        function toggleSettingsMenu() {
+    var menu = document.getElementById('settingsMenu');
+    if (menu.style.display === 'none' || menu.style.display === '') {
+        menu.style.display = 'block';
+    } else {
+        menu.style.display = 'none';
+    }
+}
+
+function changeBgColor(color) {
+    document.body.style.backgroundColor = color;
+}
+
+function changeTextSize(size) {
+    document.body.style.fontSize = size;
+}
+
+function toggleDarkMode(isDark) {
+    document.body.style.backgroundColor = isDark ? 'black' : 'white';
+    document.body.style.color = isDark ? 'white' : 'black';
+}
+      function goToIndex() {
+        window.location.href = 'index.html';
+    }
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function toggleSettings() {
+        const settingsMenu = document.getElementById('settingsMenu');
+        settingsMenu.style.display = settingsMenu.style.display === 'none' ? 'block' : 'none';
+    }
+    function changeBgColor(color) {
+        document.body.style.backgroundColor = color;
+    }
+    function changeTextSize(size) {
+        document.body.style.fontSize = size;
+    }
+    function toggleDarkMode(isDark) {
+        document.body.style.backgroundColor = isDark ? '#333' : 'white';
+        document.body.style.color = isDark ? 'white' : 'black';
+    }
+    function changeFontStyle(font) {
+        document.body.style.fontFamily = font;
+    }
+            </script>
+        </body>
+          </footer>
+      </body>
+      </html>
