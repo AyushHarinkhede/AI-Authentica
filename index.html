@@ -1,1 +1,1120 @@
-!
+<html>
+<head>
+  <title>AI Authentica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;                              
+            scroll-behavior: smooth;
+            animation: slideIn 0.8s ease-in-out;
+            
+        }
+
+        body {
+            background: linear-gradient(135deg, #d4145a, #001f3f);
+            color: white;    
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            animation: slideIn 0.8s ease-in-out;
+
+        }
+
+
+        /* Navigation */
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            animation: slideIn 1s ease-in-out;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 8.5;
+            z-index: 1000;
+            display: flex;
+            border: none;
+            border-radius: 45px;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover {
+            transform: translateY(-5px);
+            color: rgba(0, 0, 0, 0.067);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-weight: bold;
+            font-size: 3% ;
+            border-radius: 100px;
+            text-decoration:  #ffdd57;
+            font-weight: bolder;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffdd57;
+            transform: translateY(-5px);
+            border-radius: 4px;
+            
+        }
+
+        .login-btn {
+            padding: 10px 20px;
+            background: #ffdd57;
+            color: black;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #f70808;
+            color: black;
+            transform: scale(1.1);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            text-shadow: -1px -1px 0, 1px -1px 0 #f4f6f4, -1px 1px 0 #a5a6a5, 1px 1px 0 #3a3a3a, #0f0f0f; 
+        }
+
+        .signup-btn {
+            position:absolute;
+            top:17;
+            right:135px;
+            padding: 10px 20px;
+            background: #ffdd57;
+            color: black;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            background-color: #f70808;
+            color: black;
+            transform: scale(1.1);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            text-shadow: -1px -1px 0, 1px -1px 0 #f4f6f4, -1px 1px 0 #a5a6a5, 1px 1px 0 #3a3a3a, #0f0f0f; 
+        }
+    
+   #backButton, #scrollUpButton, #settingsButton {
+    position: fixed;
+    width: 60px;
+    height: 40px;
+    background: #ffdd57;
+    color: black;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#backButton:hover, #scrollUpButton:hover, #settingsButton:hover {
+    color: black;
+    transform: scale(1.1);
+    background-color: #f70808;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#backButton {
+    left: 20px;
+    position: left;
+    bottom: 20px;
+}
+
+#scrollUpButton {
+    right: 75px;
+    position: right;
+    bottom: 20px;
+}
+
+#settingsButton {
+    right: 8px;
+    position: right;
+    bottom: 20px;
+}
+#settingsContainer {
+    position: fixed;
+    right: 8px;
+    bottom: 20px;
+}
+
+#settingsMenu {
+    background: #0d000091;
+    width: 40%;
+    color: rgb(214, 214, 214);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    position: fixed;
+    right: 8px;
+    bottom: 75px;
+    z-index: 1000;
+    flex-direction: column;
+    overflow: auto;
+    max-height: 500px;
+    display: flex;
+    border: none;
+    border-radius: 25px;
+    justify-content: flex-start;
+    animation: fadeIn 0.8s forwards;
+    transition: transform 0.3s ease;
+}
+#settingsMenu::-webkit-scrollbar{
+    display: none;}
+
+#settingsMenu label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+#settingsMenu select {
+    width: 40%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#darkModeToggle {
+    margin-top: 10px;
+}
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #d4145a, #001f3f);
+            color: white;
+            animation: fadeIn 1.5s ease-in;
+            transform: scale(1.1);
+        }
+
+        header h1 span {
+            font-family: 'Great Vibes', cursive;
+            color: #ffdd57;
+        }
+
+        button {
+            margin: 15px;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            background: #ffdd57;
+            color: black;
+            border-radius: 25px;
+            opacity: 1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        button:hover {
+            opacity: 1;
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            background-color: #f70808;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            text-shadow: -1px -1px 0, 1px -1px 0 #f4f6f4, -1px 1px 0 #a5a6a5, 1px 1px 0 #3a3a3a, #0f0f0f; 
+        }
+
+      
+
+        /* Search Bar */
+        .search-bar {
+            padding: 50px 0;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .search-bar input {
+            padding: 12px;
+            width: 60%;
+            border-radius: 25px;
+            border: 2px solid #ffdd57;
+            outline: none;
+            margin: 20px 0;
+            cursor: pointer;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .search-bar button {
+            padding: 12px 20px;
+            border-radius: 25px;
+            background: #ffdd57;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            transform: scale(1.1);
+            background-color: #f70808;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            text-shadow: -1px -1px 0, 1px -1px 0 #f4f6f4, -1px 1px 0 #a5a6a5, 1px 1px 0 #3a3a3a, #0f0f0f; 
+        }
+
+
+        /* Demo Video */
+        #main-video-container {
+            position: relative;
+            background-color: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease-in-out;
+        }
+        #videoPlayer {
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        .btn {
+            padding: 12px 20px;
+            border-radius: 25px;
+            background: #ffdd57;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+            background-color: #f70808;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            text-shadow: -1px -1px 0, 1px -1px 0 #f4f6f4, -1px 1px 0 #a5a6a5, 1px 1px 0 #3a3a3a, #0f0f0f; 
+        }
+        #videoLibrary {
+            display: none;
+            margin-top: 20px;
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        .video-library-header {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .library-videos {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        .library-videos video {
+            width: 30%;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+        .library-videos video:hover {
+            transform: scale(1.05);
+        }
+
+        
+  /* Photo Upload */
+  .photo-upload {
+    background: linear-gradient(135deg, #d4145a);
+            padding: 50px 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .photo-upload input {
+            display: none;
+        }
+
+        .photo-upload button {
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            background: #ffdd57;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .photo-upload button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+            background: rgb(8, 0, 0);
+        }
+
+       <style>
+        .container {
+            align-items: center ;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px; /* spacing between images */
+        }
+      
+        .container img {
+          flex: 1 1 calc(33.333% - 10px); /* three images per row */
+          height: 200px; /* fix height for all images */
+          object-fit: cover; /* maintain aspect ratio and cover the entire box */
+          border-radius: 10px; /* for rounded corners */
+        }
+
+        .container:hover{
+            transform: scale(1.05);
+            background: rgba(8, 0, 0, 0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container img:hover{
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+            background: rgb(8, 0, 0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+      /* end to end */
+        .end-to-end {
+            animation: slideIn 1s ease-in-out;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+            margin: 0;
+        }
+       
+        .icon {
+            font-size: 50px;
+            color: #4caf50; 
+        }
+        .title {
+            font-size: 2em;
+            color: #4caf50; 
+            margin-top: 10px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #0b5104, -1px 1px 0 #0c6704, 1px 1px 0 #108905; 
+        }
+
+
+        .accordion {
+            background: #fff;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            transition: background 0.4s;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .accordion:hover {
+            background: #e0e0e0;
+        }
+
+        .accordion:after {
+            content: '\002B';
+            font-size: 13px;
+            color: #777;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .accordion.active:after {
+            content: "\2212";
+        }
+
+        .panel {
+            padding: 8px;
+            width: 100%;
+            border-radius: 45px;
+            display: none;
+            background: rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            text-align: center;
+            font-size: 1em;
+            animation: slideIn 1s ease-in-out;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+         }
+          .panel h2 {
+                text-align: left;
+            margin-bottom: 20px;
+            font-size: 2em;
+            animation: slideIn 1s ease-in-out;
+            }
+            .panel p{
+                text-align: left;
+            font-size: 1.2em;
+            line-height: 1.8;
+            animation: slideIn 1s ease-in-out
+            }
+        
+
+
+        /* About Section */
+        .about {
+            background:(135deg, #001f3f);
+            padding: 50px 0;
+            text-align: center;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .about h2 {
+            text-align: left;
+            margin-bottom: 20px;
+            font-size: 2em;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .about p {
+            text-align: left;
+            font-size: 1.2em;
+            line-height: 1.8;
+            animation: slideIn 1s ease-in-out
+        }
+
+         /* Newsletter Section */
+         .newsletter {
+            padding: 50px;
+            text-align: center;
+            background: linear-gradient(135deg, #ffb347, #f9d423,  #ff8a8a, #3e32a8,);       
+             color: #fff;
+        }
+        .newsletter input {
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .newsletter .btn {
+            background: linear-gradient(45deg, #fb0404d2, #910202b2); 
+        }
+        .newsletter .btn:hover {
+            transform: scale(1.05); /* Slight hover effect */
+            background: linear-gradient(45deg, #f6aeaed2, #ae6161); 
+
+        }
+
+        /* Footer */
+        footer {
+            background:(135deg, #001f3f);
+            padding: 20px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+      
+
+    
+       /* logout btn */
+       .logout-btn {
+            position: left;
+            bottom: 20px;
+            left: 20px; /* Left align */
+            background: linear-gradient(45deg, #ff0000, #b30000); /* Gradient red color */
+            color: white;
+            border: none;
+            padding: 8px 15px; /* Smaller size */
+            border-radius: 20px; /* Rounded corners */
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s infinite;
+        }
+
+        .logout-btn:hover {
+            transform: scale(1.05); /* Slight hover effect */
+            background: linear-gradient(45deg, #ff4d4d, #cc0000); /* Lighter red on hover */
+        }
+
+        .logout-btn img {
+            width: 20px; /* Smaller icon */
+            height: 20px;
+            margin-right: 2px; /* Space between icon and text */
+        }
+
+        .logout-btn i {
+            margin-left: 5px;
+        }
+        /* Smooth transition for better look */
+        input, select, button {
+            transition: all 0.3s ease-in-out;
+        }
+
+
+        .logout-text {
+            font-size: 16px;
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        @keyframes dot-animation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }       
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes animate {
+            from {
+                opacity: 0;
+                transform: translate(0, 100px);
+                filter: blur(3px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(0);
+                filter: blur(0);
+            }
+        }
+
+        @import url('https://use.fontawesome.com/releases/v6.4.2/css/all.css');
+        @keyframes animate { 
+            from { 
+                opacity: 0; 
+                transform: translate(0, 100px); 
+                filter: blur(3px); }
+                 to 
+                 { opacity: 1; transform: translate(0); filter: blur(0); } }
+
+
+         @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                max-width: 90%;
+            }}
+   </style>
+` 
+</head>
+<body>
+   <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="tools.html"><i class="fas fa-tools"></i> Tools</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+        <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+    </ul>
+    <button class="signup-btn" onclick="window.location.href='SignUp.html'">SignUp</button>
+    <button class="login-btn" onclick="window.location.href='login.html'">LogIn</button>
+</nav>
+
+    <!-- Hero Section -->
+    <header>
+        <div class="container">
+            <h1>Welcome to <span>AI Authentica</span></h1>
+            <p>Authenticate your files with cutting-edge AI technology</p>
+            <input type="file" id="fileUpload" hidden>
+        <button onclick="document.getElementById('fileUpload').click()">Choose File</button>
+        <button class="toolsBtn" onclick="window.location.href='tools.html'">Explore Tools</button>
+        </div>
+    </header>
+
+    <!-- Search Tools -->
+    <section class="search-bar">
+        <div class="container">
+            <input type="text" id="search" placeholder="Search tools...">
+            <button id="searchBtn">Search</button>
+        </div>
+    </section>
+
+    <div id="backButton" onclick="goToIndex()" class="button">
+        <i class="fas fa-arrow-circle-left"></i>
+    </div>
+    
+    <div id="scrollUpButton" onclick="scrollToTop()" class="button">
+        <i class="fas fa-angle-double-up"></i>
+    </div>
+    
+    <div id="settingsButton" onclick="toggleSettings()" class="button">
+        <i class="fas fa-sliders-h"></i>
+    </div>
+    <div id="settingsMenu" style="display: none;">
+        <label for="bgColor"><h1><b>Settings</b></h1></label>
+        <label for="bgColor">Change Background Color:</label>
+        <label for="theme">Theme Settings (Light/Dark Mode)</label>
+            <select id="theme" onchange="changeTheme()">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+    
+        <label for="textSize">Change Text Size:</label>
+        <select id="textSize" onchange="changeTextSize(this.value)">
+            <option value="16px">Default</option>
+            <option value="18px">Large</option>
+            <option value="20px">Larger</option>
+        </select>
+    
+        <label for="language">Language Settings</label>
+        <select id="language">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+        </select>
+
+        <label for="account">Account Settings</label>
+        <input type="text" id="account" placeholder="Update your details">
+        <button onclick="updateAccount()">Update</button>
+
+        <label for="notifications">Notification Settings</label>
+        <select id="notifications">
+            <option value="on">On</option>
+            <option value="off">Off</option>
+        </select>
+
+        <label for="privacy">Privacy Settings</label>
+        <select id="privacy">
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+        </select>
+
+        <label for="playback">Playback Settings</label>
+            <select id="playback">
+                <option value="auto">Auto</option>
+                <option value="hd">HD</option>
+                <option value="sd">SD</option>
+            </select>
+
+            <label for="content">Content Settings</label>
+            <select id="content">
+                <option value="all">All Content</option>
+                <option value="restricted">Restricted</option>
+            </select>
+
+            <label for="security">Security Settings</label>
+            <select id="security">
+                <option value="2fa">Two-Factor Authentication</option>
+                <option value="alerts">Login Alerts</option>
+            </select>
+
+            <label for="payment">Payment Settings</label>
+            <input type="text" id="payment" placeholder="Update payment method">
+            <button onclick="updatePayment()">Update</button>
+
+            <label for="accessibility">Accessibility Settings</label>
+            <select id="accessibility">
+                <option value="text-size">Text Size</option>
+                <option value="contrast">High Contrast</option>
+            </select>
+
+            <label for="storage">Data and Storage Settings</label>
+            <button onclick="clearStorage()">Clear Storage</button>
+
+            <label for="locale">Language/Locale Settings</label>
+            <select id="locale">
+                <option value="en-us">English (US)</option>
+                <option value="hi-in">Hindi (India)</option>
+            </select>
+
+            <label for="support">Help & Support</label>
+            <button class="toolsBtn" onclick="window.location.href='contact.html'">Contact Support</button>
+
+            </div>
+
+    
+    <!-- Demo Video --> 
+    <div id="signup-btn">
+    </div><div class="panel"><details><br><br><br><br><summary><h><b><i>Tap to Explore more Intresting Videos about AI Scams...</i></b></h></div>
+        <div class="container">
+            <div id="main-video-container">
+                <video id="videoPlayer" controls>
+                    <source src="video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="controls">
+                <button id="viewMoreBtn" class="btn">View More Videos</button>
+            </div>
+            <div id="videoLibrary">
+                <div class="video-library-header">Video Library</div>
+                <div class="library-videos">
+                    <video onclick="playVideo('video2.mp4')" controls>
+                        <h2><b><i>The truth About Artifical Inteligence And Chat_GPT</i></b><br><br></h2>
+                        <source src="video2.mp4" type="video/mp4">
+                    </video>
+                    <video onclick="playVideo('video3.mp4')" controls>
+                        <source src="video3.mp4" type="video/mp4">
+                    </video>
+                    <video onclick="playVideo('video4.mp4')" controls>
+                        <source src="video4.mp4" type="video/mp4">
+                    </video>
+                    <video onclick="playVideo('video5.mp4')" controls>
+                        <source src="video5.mp4" type="video/mp4">
+                    </video>
+                    <video onclick="playVideo('video6.mp4')" controls>
+                        <source src="video6.mp4" type="video/mp4">
+                    </video>
+                      <video onclick="playVideo('video7.mp4')" controls>
+                        <source src="video7.mp4" type="video/mp4">
+                    </video>
+                      <video onclick="playVideo('video8.mp4')" controls>
+                        <source src="video8.mp4" type="video/mp4">
+                    </video> 
+                     <video onclick="playVideo('video9.mp4')" controls>
+                        <source src="video9.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    
+
+     <!-- Photo Upload -->
+    <section class="photo-upload">
+        <div class="container">
+            <img src="image1.jpg" alt="Image description">
+            <img src="image2.jpg" alt="Image description">
+            <img src="image3.jpg" alt="Image description">
+            <img src="image4.jpg" alt="Image description">
+            <img src="image5.jpg" alt="Image description">
+            <img src="image6.jpg" alt="Image description">
+        </div>
+    </section>
+
+<!-- Quick Upload -->
+<section class="quick-upload">
+    <div class="container">
+        <h2>Quick Upload</h2>
+        <input type="file" id="fileUpload" hidden>
+        <button onclick="document.getElementById('fileUpload').click()">Choose File</button>
+    </div>
+</section>
+
+ <!--<div class="dotted-text" id="dottedText"></div> -->
+
+<section class="end-to-end">
+<div class="container">
+      <div class="icon">🔒</div> <div class="title">End-to-End Encryption</div> 
+      <p><b>Your data is safe and secure with us.</b><br><br></p> </div></section><br><br>
+
+
+       <!-- FAQ Accordion -->
+       <div class="about">
+        <button class="accordion">What is this website about?</button>
+        <div class="panel">
+            <p>This website helps users to manage their group expenses efficiently.</p>
+        </div><br>
+        <button class="accordion">How can I join a group?</button>
+        <div class="panel">
+            <p>You can join a group by scanning the QR code provided by the group admin.</p>
+        </div>
+    <button class="accordion">About AI Authentica</button>
+    <div class="panel">
+        <details> <p><br><b><i>My Thoughts:-</i></b><br></p>
+                
+            <p>1. Trustworthiness: AI Authentica could ensure that AI-generated results are accurate, unbiased, and ethical. This is critical for building trust in AI systems.<br>
+            
+            
+            2. Regulation and Ethics: There should be a framework to prevent misuse of AI, such as spreading misinformation or exploiting data. AI Authentica could help establish these guidelines.<br>
+            
+            
+            3. Transparency: Users should be aware that they are interacting with AI-generated content and understand how the algorithms behind it function.<br>
+            
+            
+            4. Collaboration in Innovation: Authentica could serve as a platform or standard where developers and users align on responsible AI practices, fostering innovation and accountability together.<br>
+            
+        
+            <b>If AI Authentica is a specific platform or initiative, more details about its goals and technical aspects would provide a clearer understanding. Are you referring to a specific project or idea here?<br></b></p>
+    
+            <summary><b><i><h>Tap to More...</h></i></b><p> AI Authentica is an innovative platform designed to authenticate files using both artificial intelligence and human creativity.<br>
+                It offers tools that are highly reliable, efficient, and secure, ensuring the authenticity of digital assets.<br>
+                This blend of AI precision and human intuition provides robust verification methods, reducing the chances of forgery and enhancing trust in digital transactions.<br>
+                <p>If we talk about AI Authentica, it seems to refer to a concept or system aimed at ensuring the authenticity and trustworthiness of artificial intelligence. Essentially, it focuses on using AI in a responsible, ethical, and reliable way so that its outputs can be trusted.<br></summary>
+    
+               </p>
+        </div>
+</details>
+</div>
+
+                                                
+  <!-- About Section -->
+    <section class="about">
+        <div class="container">
+           <h2><br><br><br><b>About AI Authentica</b></h2>
+            <details> <p><br><b><i>My Thoughts:-</i></b><br></p>
+                
+                <p>1. Trustworthiness: AI Authentica could ensure that AI-generated results are accurate, unbiased, and ethical. This is critical for building trust in AI systems.<br>
+                
+                
+                2. Regulation and Ethics: There should be a framework to prevent misuse of AI, such as spreading misinformation or exploiting data. AI Authentica could help establish these guidelines.<br>
+                
+                
+                3. Transparency: Users should be aware that they are interacting with AI-generated content and understand how the algorithms behind it function.<br>
+                
+                
+                4. Collaboration in Innovation: Authentica could serve as a platform or standard where developers and users align on responsible AI practices, fostering innovation and accountability together.<br>
+                
+            
+                <b>If AI Authentica is a specific platform or initiative, more details about its goals and technical aspects would provide a clearer understanding. Are you referring to a specific project or idea here?<br></b></p>
+        
+                <summary><b><i><h>Tap to More...</h></i></b><p> AI Authentica is an innovative platform designed to authenticate files using both artificial intelligence and human creativity.<br>
+                    It offers tools that are highly reliable, efficient, and secure, ensuring the authenticity of digital assets.<br>
+                    This blend of AI precision and human intuition provides robust verification methods, reducing the chances of forgery and enhancing trust in digital transactions.<br>
+                    <p>If we talk about AI Authentica, it seems to refer to a concept or system aimed at ensuring the authenticity and trustworthiness of artificial intelligence. Essentially, it focuses on using AI in a responsible, ethical, and reliable way so that its outputs can be trusted.<br></summary>
+        
+                   </p>
+        
+        
+            </div>
+    </section></details>
+
+      <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2><b>AI Authentica Importance in Human Life</b></h2>
+            <p> 1.Enhanced Security: AI Authentica helps in safeguarding sensitive data from unauthorized access and cyber threats.<br>
+                2.Trust and Transparency: By verifying the authenticity of documents, it fosters trust between parties in digital transactions.<br>
+                3.Efficiency: Automating the authentication process saves time and resources, allowing businesses to operate more efficiently.<br>
+                4.Intellectual Property Protection: It plays a crucial role in protecting creative works from plagiarism and unauthorized distribution.             
+            </p>
+        </div>
+    </section>
+    <section class="about">
+        <div class="container">
+            <h2><b>Trust in AI Authentica</b></h2>
+            <p>
+                1. Smart Technology: It uses advanced AI to spot fake files.<br>
+                2. Fast and Accurate: Quickly verifies files without mistakes.<br>
+                3. Secure: Protects your data with strong security.<br>
+                4. Reliable: Always gives accurate results.<br>
+                5. Easy to Use: User-friendly, even if you're not tech-savvy.<br>
+                6. Expert Team: Made by experts in AI and security.<br>
+         <b>In short, AI Authentica makes sure your files are real and safe to use. 🚀🔒</b><br>
+            </p>
+        </div>
+    </section>
+
+
+     <!-- Newsletter Section -->
+     <section class="newsletter">
+        <h2>Stay Updated💢</h2>
+        <p>Subscribe to our newsletter for the latest news and updates.</p>
+        <form>
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit" class="btn"><b>Subscribe</b></button>
+        </form>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer>    
+        <div class="container">
+            <p>&copy;<b> 2024-2025 AI Authentica. All rights reserved.</b> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p><br>
+        </div>
+        <button class="logout-btn" id="logoutBtn">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png" alt="Logout Icon">
+            <span><b>Logout</b></span>
+        </button>
+    
+        <script>
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                window.location.href = 'login.html';
+            });
+        </script>
+    </body>
+    </footer>
+
+
+    <script>
+const viewMoreBtn = document.getElementById('viewMoreBtn');
+        const videoLibrary = document.getElementById('videoLibrary');
+        const mainVideoContainer = document.getElementById('main-video-container');
+        const videoPlayer = document.getElementById('videoPlayer');
+
+        viewMoreBtn.addEventListener('click', () => {
+            if (videoLibrary.style.display === 'none' || videoLibrary.style.display === '') {
+                videoLibrary.style.display = 'block';
+                setTimeout(() => videoLibrary.style.opacity = '1', 100);
+                viewMoreBtn.textContent = 'Hide Videos';
+            } else {
+                videoLibrary.style.opacity = '0';
+                setTimeout(() => videoLibrary.style.display = 'none', 500);
+                viewMoreBtn.textContent = 'View More Videos';
+            }
+        });
+
+        function playVideo(videoSrc) {
+            videoPlayer.src = videoSrc;
+            videoPlayer.play();
+            mainVideoContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+
+var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+        // Toggle settings menu
+    function toggleSettings() {
+      const menu = document.getElementById('settingsMenu');
+      menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+    }
+
+    // Change background color
+    function changeBgColor(color) {
+      document.body.style.backgroundColor = color;
+    }
+
+    // Change text size
+    function changeTextSize(size) {
+      document.body.style.fontSize = size;
+    }
+
+    // Toggle dark mode
+    function toggleDarkMode(isDark) {
+      document.body.style.backgroundColor = isDark ? '#333' : 'white';
+      document.body.style.color = isDark ? 'white' : 'black';
+    }
+
+    // Close the settings menu if clicked outside
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('settingsMenu');
+      const button = document.getElementById('settingsButton');
+      if (!menu.contains(event.target) && !button.contains(event.target)) {
+        menu.style.display = 'none';
+      }
+    });
+
+        function toggleSettingsMenu() {
+    var menu = document.getElementById('settingsMenu');
+    if (menu.style.display === 'none' || menu.style.display === '') {
+        menu.style.display = 'block';
+    } else {
+        menu.style.display = 'none';
+    }
+}
+
+function changeBgColor(color) {
+    document.body.style.backgroundColor = color;
+}
+
+function changeTextSize(size) {
+    document.body.style.fontSize = size;
+}
+
+function toggleDarkMode(isDark) {
+    document.body.style.backgroundColor = isDark ? 'black' : 'white';
+    document.body.style.color = isDark ? 'white' : 'black';
+}
+      function goToIndex() {
+        window.location.href = 'index.html';
+    }
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function toggleSettings() {
+        const settingsMenu = document.getElementById('settingsMenu');
+        settingsMenu.style.display = settingsMenu.style.display === 'none' ? 'block' : 'none';
+    }
+    function changeBgColor(color) {
+        document.body.style.backgroundColor = color;
+    }
+    function changeTextSize(size) {
+        document.body.style.fontSize = size;
+    }
+    function toggleDarkMode(isDark) {
+        document.body.style.backgroundColor = isDark ? '#333' : 'white';
+        document.body.style.color = isDark ? 'white' : 'black';
+    }
+    function changeFontStyle(font) {
+        document.body.style.fontFamily = font;
+    }
+    </script>
+</body>
+</html>
