@@ -416,7 +416,7 @@
         });
 
         // Eye-ball follows cursor movement
-        document.addEventListener('mousemove', (e) => {
+      document.addEventListener('mousemove', (e) => {
             const eye = togglePasswordButton.getBoundingClientRect();
             const x = e.clientX - eye.left - eye.width / 2;
             const y = e.clientY - eye.top - eye.height / 2;
